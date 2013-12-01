@@ -52,3 +52,14 @@ Parts List (STUB)
 - Accelerometer
 - GPS
 - Wifi (and/or connection for data)
+
+Questions/Notes to self
+--------------------------
+- What board will I be using? Can't start without deciding on a board
+- I should impliment manual controls before jumping to autonomous
+- How will I send commands over while testing?
+- What do use as a data connection? Range is important (or will be)
+- Rpi battery usage
+- Use two boards instead? One to control quadcopter and stabilize while rpi navigates and uses GPS? 
+- In addition to dual boards, possibly prototype with a Pi and move to a dual board setup in the future
+- How fast will the Pi be? Too many layers between motor controls and Pythons script (maybe)
