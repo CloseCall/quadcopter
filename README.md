@@ -16,6 +16,7 @@ http://ghowen.me/build-your-own-quadcopter-autopilot/
 r/multicopter
 http://www.multirotorforums.com/
 http://diydrones.com/
+http://blog.oscarliang.net/build-a-quadcopter-beginners-tutorial-1/
 
 Milestones:
 -----------
