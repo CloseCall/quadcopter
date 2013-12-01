@@ -11,23 +11,32 @@ RIGHT_PIN=12
 BACK_PIN=12
 LEFT_PIN=12
 
+#NOTE: Pins for Sensors will probably change... will most likely be using I2C
 #Gyroscope
-GYRO_PIN=13
+GYROX_PIN=13
+GYROY_PIN=13
+GYROZ_PIN=13
+GYRO_TOLERANCE=0 #Sensors aren't perfect...
+
 #Accelerometer
-ACCEL_PIN=13
+ACCELX_PIN=13
+ACCELY_PIN=13
+ACCELZ_PIN=13
+ACCEL_TOLERANCE=0
+#Altimeter
+BAR_PIN=1
 
 ##Pin setup
 GPIO.setup(FRONT_PIN,GPIO.OUT)
 GPIO.setup(RIGHT_PIN,GPIO.OUT)
 GPIO.setup(BACK_PIN,GPIO.OUT)
 GPIO.setup(LEFT_PIN,GPIO.OUT)       
-GPIO.setup(GYRO_PIN,GPIO.IN)       
-GPIO.setup(ACCEL_PIN,GPIO.IN)
+#TODO: Setup gyro, accel, alti, etc.
 
 
 ##Global Variables
 
-#PWD Speed table
+#PWD Speed table, unsure if it's necessary but it's here for now
 SPEED_MIN, SPEED_0 = 0,0
 SPEED_1=0
 SPEED_2=0
@@ -100,8 +109,13 @@ def main():
 #Directional functions
 
 #Stay in place
+#Time or distance TBD
 def hover(time=0, speed=SPEED_MAX):
-    #stub
+    #Need Altimeter data
+    #save alti data
+    #Loop:
+    #If within tolerance, need to go up and down
+    #If above or below, should adjust speed according to distance
     return
 
 def forward(speed):
@@ -113,7 +127,13 @@ def turn(direction):
     return
 
 def up(speed):
-    #stub
+    #Loop:
+    #Stabilize
+    #All fans up
+    #Check gyro data
+    #Correct fan speeds
+    #Check time
+    #Rinse and repeat
     return
 
 def down(speed):
@@ -132,9 +152,33 @@ def back(speed):
     #stub
     return
 
-#Set motor and speed... do I really need this function?? Fill in for now
-def motor_control(motor, speed):
-    motor.ChangeDutyCycle(speed)
+def stabilize():
+    #Loop:
+    #read gyro data
+    #Calc diff between horizontal and data
+    #within tolerance?
+    #If not, adjust for X and Y axis    
+    #Else return
+
+    return
+
+#set all motor speeds
+def motor_speed(front, right, back, left):
+    #Don't change speeds if 0!
+    if front != 0:
+        FRONT.ChangeDutyCycle(front)
+    if right != 0:
+        RIGHT.ChangeDutyCycle(right)
+    if back != 0:
+        BACK.ChangeDutyCycle(back)
+    if left != 0:
+        LEFT.ChangeDutyCycle(left)
+
+#Read pin data (accel or gyro)
+def get_sensor(pin):
+    data=0
+    #stub
+    return data
 
 #Quad test. All the basic functions of the quad
 #Test should go as follows:
