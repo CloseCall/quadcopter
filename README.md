@@ -50,6 +50,8 @@ Parts List (STUB)
 - Controller board (Raspberry pi, Arduino, Beaglebone, or some other ARM or AVR based board)
 - Gyroscope
 - Accelerometer
+- Magnetometer (?)
+- Altimeter - Barometric pressure sensor (?)
 - GPS
 - Wifi (and/or connection for data)
 
