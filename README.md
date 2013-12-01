@@ -44,11 +44,11 @@ Stretch goals
 
 Parts List (STUB)
 ----------------
-+Motor (x4)
-+ESC (x4)
-+LiPo Battery
-+Controller board (Raspberry pi, Arduino, Beaglebone, or some other ARM or AVR based board)
-+Gyroscope
-+Accelerometer
-+GPS
-+Wifi (and/or connection for data)
+- Motor (x4)
+- ESC (x4)
+- LiPo Battery
+- Controller board (Raspberry pi, Arduino, Beaglebone, or some other ARM or AVR based board)
+- Gyroscope
+- Accelerometer
+- GPS
+- Wifi (and/or connection for data)
