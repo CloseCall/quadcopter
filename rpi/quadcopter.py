@@ -102,9 +102,13 @@ def main():
     #Accel Setup
     #Gyro Setup
     
+    #Command List
+
+    #Loop forever, going through command list.
 
     GPIO.cleanup() #If it actually exits, we need to clean it all up
-
+    
+    #Maybe shutdown
 
 #Directional functions
 
@@ -118,14 +122,21 @@ def hover(time=0, speed=SPEED_MAX):
     #If above or below, should adjust speed according to distance
     return
 
+#Back top speed, left+right middle speed, front low speed. 
+#Eventually tilt until fully vertical and maintain? 
+#Or keep 45 degrees?
+#Same goes for other strafe movements
 def forward(speed):
     #stub
     return
 
+#To turn, left and right top speed, bottom and top low speed
+#Remember to maintain height!
 def turn(direction):
     #stub
     return
 
+#All fans up? Stabilize as you go up?
 def up(speed):
     #Loop:
     #Stabilize
@@ -136,18 +147,22 @@ def up(speed):
     #Rinse and repeat
     return
 
+#Lower fan speeds?
 def down(speed):
     #stub
     return
 
+#Right top speed, front and back mid speed, left low speed
 def left(speed):
     #stub
     return
 
+#Left top speed, front and back mid speed, right low speed
 def right(speed):
     #stub
     return
 
+#Front top speed, left right middle speed, back low speed
 def back(speed):
     #stub
     return
