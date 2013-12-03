@@ -72,4 +72,4 @@ r/multicopter (And other subs)
 http://www.multirotorforums.com/
 http://diydrones.com/
 http://blog.oscarliang.net/build-a-quadcopter-beginners-tutorial-1/
-
+http://www.raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2

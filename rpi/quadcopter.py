@@ -2,6 +2,8 @@
 
 import time
 import RPi.GPIO as GPIO
+import smbus
+
 GPIO.setmode(GPIO.BOARD)
 
 ##Pin assignments
@@ -86,6 +88,24 @@ def pwm_example2():
     
     # Shutdown all PWM and DMA activity
     PWM.cleanup()
+
+def i2c_example():
+    #So far... i2c on the rpi with python using smbus is quite confusing. Will need to do more reading.
+
+    #Example from:
+    #http://www.raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2
+
+    bus = smbus.SMBus(1)    # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
+
+    DEVICE_ADDRESS = 0x15      #7 bit address (will be left shifted to add the read write bit)
+    DEVICE_REG_MODE1 = 0x00
+    DEVICE_REG_LEDOUT0 = 0x1d 
+    #Write a single register
+    bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, 0x80)
+
+    #Write an array of registers
+    ledout_values = [0xff, 0xff, 0xff, 0xff, 0xff, 0xff]
+    bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 
 def main():
     print("Here we go!")
