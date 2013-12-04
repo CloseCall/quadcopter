@@ -15,25 +15,29 @@ LEFT_PIN=12
 
 #NOTE: Pins for Sensors will probably change... will most likely be using I2C
 #Gyroscope
-GYROX_PIN=13
-GYROY_PIN=13
-GYROZ_PIN=13
+GYROX_ADDR=13
+GYROY_ADDR=13
+GYROZ_ADDR=13
 GYRO_TOLERANCE=0 #Sensors aren't perfect...
 
 #Accelerometer
-ACCELX_PIN=13
-ACCELY_PIN=13
-ACCELZ_PIN=13
+ACCELX_ADDR=13
+ACCELY_ADDR=13
+ACCELZ_ADDR=13
 ACCEL_TOLERANCE=0
+
 #Altimeter
-BAR_PIN=1
+BAR_ADDR=1
+
+#GPS #Unsure what protocol it's going to use
+#GPS_ADDR=
 
 ##Pin setup
 GPIO.setup(FRONT_PIN,GPIO.OUT)
 GPIO.setup(RIGHT_PIN,GPIO.OUT)
 GPIO.setup(BACK_PIN,GPIO.OUT)
 GPIO.setup(LEFT_PIN,GPIO.OUT)       
-#TODO: Setup gyro, accel, alti, etc.
+#TODO: Setup sensors
 
 
 ##Global Variables
@@ -214,6 +218,17 @@ def get_sensor(pin):
     data=0
     #stub
     return data
+
+def read_i2c(address):
+    #Example derived from http://www.instructables.com/id/Raspberry-Pi-I2C-Python
+    bus = smbus.SMBus(0)
+    left = bus.read_byte_data(address,2)
+    right = bus.read_byte_data(address,3)
+    
+    data = (left<<8) + right #Combine both halves
+    data = data/10
+    
+    return data #Degrees
 
 #Quad test. All the basic functions of the quad
 #Test should go as follows:

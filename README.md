@@ -13,7 +13,9 @@ Instead of spending a lot of money and buying a prebuilt quadcopter and autopilo
 
 Latest Design idea:
 --------------
-A lot of designs I have seen are using a dual board design: One board that takes in commands from a rf transmitter and a second board that does navigation by simulating those rf signals to the controller board. I am leaning towards a single board (most likely an rpi) for simplicity and easy of programming (all in Python) but may later move to a dual board setup.
+A lot of designs I have seen are using a dual board design: One board that takes in commands from a rf transmitter and a second board that does navigation by simulating those rf signals to the controller board. 
+
+I plan on using a single board (Raspberry Pi) initally to run the whole system. When the software works, I will port it to an Arduino and the rpi will handle the navigation.
 
 Milestones:
 -----------
@@ -67,9 +69,9 @@ Questions/Notes to self
 Resources:
 ----------
 I will be using online resource such as (To name a few):
-http://ghowen.me/build-your-own-quadcopter-autopilot/ 
-r/multicopter (And other subs)
-http://www.multirotorforums.com/
-http://diydrones.com/
-http://blog.oscarliang.net/build-a-quadcopter-beginners-tutorial-1/
-http://www.raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2
+- http://ghowen.me/build-your-own-quadcopter-autopilot/ 
+- r/multicopter (And other subs)
+- http://www.multirotorforums.com/
+- http://diydrones.com/
+- http://blog.oscarliang.net/build-a-quadcopter-beginners-tutorial-1/
+- http://www.raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2
